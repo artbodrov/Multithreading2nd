@@ -5,8 +5,6 @@ public class Main {
 
 
        new MyThread(phsr);
-        curPhase = phsr.getPhase() ;
-        phsr.arriveAndAwaitAdvance() ;
 
     }
 }
