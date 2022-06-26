@@ -1,10 +1,14 @@
 public class Main {
     public static void main(String args[]) {
-        MyPhaser phsr = new MyPhaser(1, 15);
+
+        FizzBuzz fizzBuzz = new FizzBuzz(15);
+
+        new Thread(fizzBuzz::fizz).start();
+        new Thread(fizzBuzz::buzz).start();
+        new Thread(fizzBuzz::fizzbuzz).start();
+        new Thread(fizzBuzz::number).start();
 
 
-
-       new MyThread(phsr);
 
     }
 }

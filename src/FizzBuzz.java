@@ -1,60 +1,71 @@
 public class FizzBuzz {
 
-    private volatile int count;
-
-/*
+    static int n;
+    volatile static int count;
 
     public FizzBuzz(int n) {
+
         this.n = n;
-        this.count = 1;
 
 
-    }*/
+
+    }
 
     public void fizz() {
-        for (int i = 1; i <= 15; i++) {
 
-            if (i % 3 == 0 && i % 5 != 0 && i <= 15) {
-                System.out.print("fizz" + i + ", ");
+        while (count < n) {
+            ++count;
 
+            {
+                if (count % 3 == 0 && count % 5 != 0) {
+                    System.out.print("fizz"  + ", ");
+                }
 
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
         }
-
     }
 
     public void buzz() {
-        for (int i = 1; i <= 15; i++) {
-
-            if (i % 5 == 0 && i % 3 != 0 && i <= 15) {
-                System.out.print("buzz" + i + ", ");
+        int localvar = 0;
+        while (localvar < n) {
+            if (localvar != count) {
+                if (count % 5 == 0 && count % 3 != 0) {
+                    System.out.print("buzz" +", ");
+                }
+                localvar = count;
             }
-
         }
     }
-
 
     public void fizzbuzz() {
-        for (int i = 1; i <= 15; i++) {
-
-            if (i % 3 == 0 && i % 5 == 0 && i <= 15) {
-                System.out.print("fizzbuzz" + i + ", ");
+        int localvar = 0;
+        while (localvar < n) {
+            if (localvar != count) {
+                if (count % 3 == 0 && count % 5 == 0 && count <= 15) {
+                    System.out.print("fizzbuzz" +  ", ");
+                }
+                localvar = count;
 
             }
         }
     }
-
 
     public void number() {
-        for (int i = 1; i <= 15; i++) {
-            if (i % 3 != 0 && i % 5 != 0 && i <= 15) {
-                System.out.print(i + ", ");
+        int localvar = 0;
+        while (localvar < n) {
+            if (localvar != count) {
+                if (count % 3 != 0 && count % 5 != 0) {
+                    System.out.print(count + ", ");
+
+                }
+                localvar = count;
             }
-
         }
-
-
     }
-
 }
 
